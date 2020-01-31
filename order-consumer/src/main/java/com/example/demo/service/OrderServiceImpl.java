@@ -79,7 +79,6 @@ public class OrderServiceImpl implements OrderService{
 			}
 		return result;
 	}
-	
 	public String callFallback(String productName, int orderedQuantity/* , Throwable e */){
 		//System.out.println("");
 		return "Sorry!! Due to Internal Server error We could not process your order at this time";
