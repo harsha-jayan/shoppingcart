@@ -45,14 +45,14 @@ public class InventoryServiceImpl implements InventoryService {
 		InventoryEntity inventoryEntity = inventoryRepository.findByProductId(prodId);
 		inventoryEntity.setQuantity(qty);
 		inventoryRepository.save(inventoryEntity);
-		if (0 == qty) {
+		//if (0 == qty) {
 		System.out.println("Sending message to RabbitMQ:::");
 		MessageBean messageBean = new MessageBean();
 		messageBean.setProdId(prodId);
 		messageBean.setQty(qty);
 		rabbitTemplate.convertAndSend(exchange,routingKey, messageBean);
 		LOG.info("message has been sent to the queue");
-		}
+		//}
 		return "updated Inventory successfully";
 
 	}

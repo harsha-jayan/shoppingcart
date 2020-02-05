@@ -60,8 +60,6 @@ public class RabbitMQConfiguration {
 	@Bean
 	public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
 
-		// Channel ch = connectionFactory.createConnection().createChannel(false);
-
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
 		return rabbitTemplate;
@@ -80,14 +78,5 @@ public class RabbitMQConfiguration {
 		connectionFactory.setPassword(password);
 		return connectionFactory;
 	}
-
-
-	/*
-	 * @Bean public RabbitTemplate rabbitTemplate(final ConnectionFactory
-	 * connectionFactory) { final RabbitTemplate rabbitTemplate = new
-	 * RabbitTemplate(connectionFactory);
-	 * //rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
-	 * return rabbitTemplate; }
-	 */
 
 }
