@@ -32,5 +32,10 @@ public class InventoryController {
 		return result;
 	}
 
+	@RequestMapping(value="/sentToRabbitMq",method=RequestMethod.GET)
+	public String sentToRabbitMq() {
+		inventoryService.sentToRabbitMq();
+		return "messagesent";
+	}
 
 }

@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -56,6 +60,10 @@ public class InventoryServiceImpl implements InventoryService {
 		return "updated Inventory successfully";
 
 	}
+	public void sentToRabbitMq() {
+		
+		rabbitTemplate.convertAndSend(exchange,routingKey, "messageBean");
 
+	}
 
 }

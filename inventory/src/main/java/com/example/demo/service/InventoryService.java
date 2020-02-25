@@ -7,4 +7,6 @@ public interface InventoryService {
 	public int getQuantityByProductId(String prodId);
 
 	public String updateInventory(String prodId, int qty);
+	
+	public void sentToRabbitMq();
 }
